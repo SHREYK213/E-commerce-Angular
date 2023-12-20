@@ -1,0 +1,38 @@
+.title{
+    font-size: 28px;
+    margin-left: 4px;
+}
+
+.spacer-left{
+    flex:1;
+}
+.spacer-right{
+    flex:1 1 auto;
+}
+
+.logo{
+    height: 40px;
+    img{
+    height: 40px;
+    }
+}
+mat-toolbar{
+    background-color: #0d67b5;
+}
+
+.top-bar-right{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    .login-button{
+        background-color: white;
+        color: #0d67b5;
+        font-size: 16px;
+        height: 35px;
+        width: 65px;
+        border-radius: 5px;
+        border: 0;
+        cursor: pointer;
+        }
+}
