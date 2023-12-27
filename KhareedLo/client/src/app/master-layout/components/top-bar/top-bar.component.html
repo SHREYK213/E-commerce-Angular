@@ -1,11 +1,12 @@
 <mat-toolbar>
-    <mat-toolbar-row>
+    <mat-toolbar-row class="top-row">
+      <button mat-icon-button class="menu-button" (click)="menuOpen()" [hidden]=isSidebarOpen>
+        <mat-icon class="menu-icon">menu</mat-icon>
+    </button>
 <a class="logo" routerLink="/">
     <img src="assets/images/KhareedLo_logo.jpeg" alt="">
 </a>
-<button mat-icon-button class="menu-button">
-    <mat-icon class="menu-icon">menu</mat-icon>
-</button>
+
 <span class="title">KhareedLo</span>
 <span class="spacer-left"></span>
 <app-search-bar></app-search-bar>
@@ -22,4 +23,15 @@
   </button>
 </div>
 </mat-toolbar-row>
+<mat-divider class="top-nav-divider"></mat-divider>
+<mat-toolbar-row class="second-row">
+  <span *ngFor="let category of categories" class="category">
+  <h1>{{ category.name }}</h1>
+  <div
+    class="expand-button" (click)="toggleCategory(category)">
+    <mat-icon class="expand-icon">{{ category.expanded ? 'expand_less' : 'expand_more' }}</mat-icon>
+  </div>
+  </span>
+</mat-toolbar-row>
+<mat-divider class="secondary-nav-divider"></mat-divider>
 </mat-toolbar>

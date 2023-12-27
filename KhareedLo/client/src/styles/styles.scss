@@ -36,6 +36,7 @@ $KhareedLo-theme: mat.define-dark-theme((
 /* You can add global styles to this file, and also import other style files */
 
 body{
+  overflow-x: hidden;
     margin: 0;
     padding: 0;
 }
@@ -43,5 +44,5 @@ html, body { height: 100%; }
 body { margin: 0; font-family: "NovaSquare" }
 @font-face {
   font-family: 'NovaSquare';
-  src: url('./assets/fonts/NovaSquare-Regular.ttf');
+  src: url('./../assets/fonts/NovaSquare-Regular.ttf');
 }

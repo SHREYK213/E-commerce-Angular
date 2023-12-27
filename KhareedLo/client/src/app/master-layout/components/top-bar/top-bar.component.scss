@@ -1,3 +1,5 @@
+@import "../../../../styles/constans/variables.scss";
+
 .title{
     font-size: 28px;
     margin-left: 4px;
@@ -35,4 +37,44 @@ mat-toolbar{
         border: 0;
         cursor: pointer;
         }
+}
+
+.top-nav-divider{
+    border-color: grey;
+    width: 100%;
+    position: absolute;
+    top: 4rem;
+}
+.secondary-nav-divider{
+    border-color: grey;
+    width: 100%;
+    position: absolute;
+    top: 6rem;
+}
+.second-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 2rem;
+    background-color: white;
+    color: $primary-color;
+    .category{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.3rem;
+    }
+    .expand-button{
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        cursor: pointer;
+        .expand-icon{
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            justify-content: space-around;
+        }
+    }
 }

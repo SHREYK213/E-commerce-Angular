@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-master-layout',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./master-layout.component.scss']
 })
 export class MasterLayoutComponent {
+  @Output() toggle: EventEmitter<void> = new EventEmitter<void>();
+  isSidebarOpen = false; // Add this line to declare and initialize sidebarOpened
 
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
 }

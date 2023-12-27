@@ -7,10 +7,12 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
-    SearchBarComponent
+    SearchBarComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   exports: [
-    SearchBarComponent
+    SearchBarComponent,
+    ProfileComponent
   ]
 })
 export class CommonUtilsModule { }

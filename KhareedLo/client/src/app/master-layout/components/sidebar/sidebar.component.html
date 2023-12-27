@@ -1,0 +1,14 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" opened={{isSidebarOpen}}>
+      <div class="sidebar-top">
+        <app-profile></app-profile>
+          <button mat-icon-button class="menu-button" (click)="menuOpen()">
+            <mat-icon class="menu-icon">close</mat-icon>
+          </button>
+        </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <ng-content></ng-content>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
