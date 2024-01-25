@@ -15,6 +15,7 @@ import { MatRippleModule } from '@angular/material/core';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatDividerModule,
     MatRippleModule,
     MatSidenavModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatListModule
   ]
 })
 export class MasterLayoutModule { }

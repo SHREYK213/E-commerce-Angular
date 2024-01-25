@@ -3,12 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: "", redirectTo: "master-layout", pathMatch: "full"
+    path: "", redirectTo: "", pathMatch: "full"
   },
   {
     path: "",
     loadChildren: () =>
-      import("../app/master-layout/master-layout.module").then((m) => m.MasterLayoutModule)
+      import("./master-layout/master-layout.module").then((m) => m.MasterLayoutModule),
+  },
+  {
+    path: "register",
+    loadChildren: () =>
+      import("./signup/signup-routing.module").then((m) => m.SignupRoutingModule),
   },
 ];
 

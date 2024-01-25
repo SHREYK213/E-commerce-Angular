@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent {
+  searchInputValue: string = '';
 
+  clearInput() {
+    this.searchInputValue = '';
+  }
 }

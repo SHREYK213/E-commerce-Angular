@@ -19,4 +19,14 @@ export class SidebarComponent {
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
+
+  categories = [
+    { name: 'Electronics' },
+    { name: 'Clothing' },
+    { name: 'Books' },
+    { name: 'Home & Kichten' },
+    { name: 'Sports' },
+    { name: 'Groceries' },
+    { name: 'others' }
+  ];
 }

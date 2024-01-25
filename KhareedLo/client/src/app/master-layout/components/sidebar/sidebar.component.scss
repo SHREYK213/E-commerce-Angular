@@ -7,8 +7,8 @@
     }
 mat-sidenav{
     width: 250px;
-    background-color: white;
-    color: black;
+    // background-color: white;
+    // color: $primary-color !important;
 }
 
 .sidebar-top{
@@ -20,5 +20,9 @@ mat-sidenav{
 .menu-icon{
     font-size: 24px;
     align-self: center;
+    color: $primary-color;
+}
+
+mat-nav-list a {
     color: $primary-color;
 }

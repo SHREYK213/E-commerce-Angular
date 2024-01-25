@@ -3,6 +3,7 @@
 .title{
     font-size: 28px;
     margin-left: 4px;
+    color: #b9b8b8;
 }
 
 .spacer-left{
@@ -19,7 +20,7 @@
     }
 }
 mat-toolbar{
-    background-color: #0d67b5;
+    background-color: transparent;
 }
 
 .top-bar-right{
@@ -28,11 +29,11 @@ mat-toolbar{
     align-items: center;
     gap: 20px;
     .login-button{
-        background-color: white;
-        color: #0d67b5;
+        background-color: #080808;
+        color: grey;
         font-size: 16px;
         height: 35px;
-        width: 65px;
+        width: fit-content;
         border-radius: 5px;
         border: 0;
         cursor: pointer;
@@ -56,7 +57,7 @@ mat-toolbar{
     flex-direction: row;
     justify-content: space-between;
     height: 2rem;
-    background-color: white;
+    background-color: transparent;
     color: $primary-color;
     .category{
         display: flex;
@@ -77,4 +78,16 @@ mat-toolbar{
             justify-content: space-around;
         }
     }
+}
+
+.menu-icon{
+    color: #b9b8b8;
+}
+
+.favorite-icon{
+    color: rgb(159, 3, 3);
+}
+
+.shopping-icon{
+    color:#b9b8b8;
 }

@@ -4,15 +4,18 @@ import { CommonModule } from '@angular/common';
 import { CommonUtilsRoutingModule } from './common-utils-routing.module';
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
-import { MatFormFieldModule } from '@angular/material/form-field'
 import { SearchBarComponent } from './search-bar/search-bar.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
     SearchBarComponent,
-    ProfileComponent
+    ProfileComponent,
+    SignupFormComponent
   ],
   imports: [
     CommonModule,
@@ -20,11 +23,15 @@ import { ProfileComponent } from './profile/profile.component';
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    MatInputModule
+
   ],
   exports: [
     SearchBarComponent,
-    ProfileComponent
+    ProfileComponent,
+    SignupFormComponent
   ]
 })
 export class CommonUtilsModule { }
