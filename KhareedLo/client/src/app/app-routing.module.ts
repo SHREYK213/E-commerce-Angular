@@ -11,7 +11,7 @@ const routes: Routes = [
       import("./master-layout/master-layout.module").then((m) => m.MasterLayoutModule),
   },
   {
-    path: "register",
+    path: "signup",
     loadChildren: () =>
       import("./signup/signup-routing.module").then((m) => m.SignupRoutingModule),
   },

@@ -27,7 +27,7 @@ const register = async (req, res) => {
       });
 
       // Set cookie with the generated token
-      res.cookie("jwt", token, { maxAge: 1 * 24 * 60* 60 * 1000, httpOnly: true });
+      res.cookie("jwt", token, { maxAge: 1 * 24 * 60 * 60 * 1000, httpOnly: true });
 
       console.log("User", JSON.stringify(user, null, 2));
       console.log("Token", token);

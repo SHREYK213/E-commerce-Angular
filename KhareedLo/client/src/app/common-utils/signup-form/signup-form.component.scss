@@ -1,0 +1,202 @@
+.login-page {
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .login-page .div {
+    // background-image: url(./img/login-page.svg);
+    background-size: cover;
+    background-position: 50% 50%;
+    width: 800px; /* Adjusted width */
+    height: 600px; /* Adjusted height */
+    position: relative;
+  }
+  
+  .login-page .overlap {
+    position: absolute;
+    width: 800px; /* Adjusted width */
+    height: 500px; /* Adjusted height */
+    top: 100px; /* Adjusted top position */
+    left: 0;
+  }
+  
+  .login-page .vector {
+    position: absolute;
+    width: 800px; /* Adjusted width */
+    height: 400px; /* Adjusted height */
+    top: 50px; /* Adjusted top position */
+    left: 0;
+  }
+  
+  .login-page .rectangle {
+    position: absolute;
+    width: 350px;
+    height: 400px;
+    top: 0;
+    left: 200px;
+    background-color: #333232;
+    border-radius: 20px;
+    box-shadow: 0px 3.02px 9.33px #0000004a, 0px 7.25px 22.41px #00000035, 0px 13.65px 42.2px #0000002c,
+      0px 24.35px 75.27px #00000025, 0px 45.54px 140.79px #0000001e, 0px 109px 337px #00000015;
+  }
+  
+  .login-page .text-wrapper {
+    position: absolute;
+    top: 50px;
+    left: 220px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #eeeeee;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .login-page .field {
+    position: absolute;
+    width: 300px;
+    height: 80px;
+    top: 150px;
+    left: 200px;
+  }
+  
+  .login-page .overlap-group {
+    position: relative;
+    width: 300px;
+    height: 80px;
+    border-radius: 100px;
+    border: 3px solid;
+    border-color: #ffffff;
+  }
+  
+  .login-page .text-wrapper-2 {
+    position: absolute;
+    width: 150px;
+    top: 20px;
+    left: 25px;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #aaaaaa;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .login-page .next {
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    top: 250px;
+    left: 220px;
+  }
+  
+  .login-page .overlap-2 {
+    position: relative;
+    width: 150px;
+    height: 50px;
+    background-color: #4269e2;
+    border-radius: 100px;
+  }
+  
+  .login-page .text-wrapper-3 {
+    position: absolute;
+    top: 15px;
+    left: 30px;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .login-page .eva-arrow-ios {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 17px;
+    left: 100px;
+  }
+  
+  .login-page .FORGOT-PASSWORD {
+    position: absolute;
+    top: 270px;
+    left: 300px;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: normal;
+    text-decoration: underline;
+  }
+  
+  .login-page .standard-collection {
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    top: 35px;
+    left: 240px;
+  }
+  
+  .login-page .login-signup {
+    position: absolute;
+    width: 150px;
+    height: 40px;
+    top: 40px;
+    left: 450px;
+  }
+  
+  .login-page .overlap-3 {
+    position: relative;
+    width: 150px;
+    height: 40px;
+  }
+  
+  .login-page .rectangle-2 {
+    position: absolute;
+    width: 150px;
+    height: 40px;
+    top: 1px;
+    left: 0;
+    background-color: #111111;
+    border-radius: 100px;
+  }
+  
+  .login-page .SIGNUP {
+    position: absolute;
+    top: 15px;
+    left: 100px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #abbfff;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .login-page .rectangle-3 {
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    top: 0;
+    left: 0;
+    background-color: #4269e2;
+    border-radius: 100px;
+  }
+  
+  .login-page .LOGIN {
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  

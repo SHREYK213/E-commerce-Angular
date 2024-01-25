@@ -10,13 +10,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
     SearchBarComponent,
     ProfileComponent,
-    SignupFormComponent
-  ],
+    SignupFormComponent  ],
   imports: [
     CommonModule,
     CommonUtilsRoutingModule,
@@ -25,8 +26,9 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     ReactiveFormsModule,
     FormsModule,
-    MatInputModule
-
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule,
   ],
   exports: [
     SearchBarComponent,

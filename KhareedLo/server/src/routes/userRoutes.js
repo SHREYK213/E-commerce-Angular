@@ -1,7 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const userAuth = require("../middleware/userAuth.js");
-const userController = require('../controllers/userControllers.js')
+const userController = require('../controllers/userController.js')
 const { register} = userController
 
 

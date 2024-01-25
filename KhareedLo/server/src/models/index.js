@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 
 const password = 'Nikhilrathod@1305';
 const encodedPassword = encodeURIComponent(password);
-// ('mailto:postgres://user:pass@example.com:5432/dbname')
+// ('postgres://user:pass@example.com:5432/dbname')
 const connectionString = `postgres://nikhil:${encodedPassword}@localhost:5432/khareedlo`;
 const sequelize = new Sequelize(connectionString, {dialect: "postgres"})
 

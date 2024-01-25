@@ -1,22 +1,45 @@
-<form>
-  <mat-form-field>
-    <input matInput type="text">
-    <mat-label>Name</mat-label>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput type="text">
-    <mat-label>Email</mat-label>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput type="text">
-    <mat-label>Phone Number</mat-label>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput type="text">
-    <mat-label>Password</mat-label>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput type="text">
-    <mat-label>Name</mat-label>
-  </mat-form-field>
+<!-- Import Angular Material styles if not already imported -->
+<!-- Add this to your styles.scss or styles.css file -->
+<!-- @import '@angular/material/prebuilt-themes/indigo-pink.css'; -->
+
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="login-page">
+  <div formArrayName="users">
+    <div *ngFor="let user of users.controls; let i = index" [formGroupName]="i" class="div">
+      <div class="overlap">
+        <img class="vector" src="./../../../assets/images/Vector.png" />
+        <div class="rectangle"></div>
+        <div class="text-wrapper">Welcome Back</div>
+
+        <div class="field">
+          <div class="overlap-group">
+            <div class="text-wrapper-2">
+              <mat-form-field appearance="outline" class="form-field">
+                <input matInput [formControlName]="'yourmail'" placeholder="Your Email" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div class="next">
+          <div class="overlap-2">
+            <div class="text-wrapper-3">Next</div>
+            <img class="eva-arrow-ios" src="" />
+          </div>
+        </div>
+
+        <div class="FORGOT-PASSWORD">forgot password</div>
+
+        <img class="standard-collection" src="./../../../assets/images/standard-collection-14.png" />
+      </div>
+
+      <div class="login-signup">
+        <div class="overlap-3">
+          <div class="rectangle-2"></div>
+          <div class="SIGNUP">signup</div>
+          <div class="rectangle-3"></div>
+          <div class="LOGIN">login</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </form>

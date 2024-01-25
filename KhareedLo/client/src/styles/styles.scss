@@ -20,7 +20,7 @@ $KhareedLo-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$KhareedLo-theme: mat.define-dark-theme((
+$KhareedLo-theme: mat.define-light-theme((
   color: (
     primary: $KhareedLo-primary,
     accent: $KhareedLo-accent,
@@ -48,3 +48,8 @@ body { margin: 0; font-family: "NovaSquare" }
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mat-mdc-form-field-subscript-wrapper{
+  display: none;
+}
