@@ -8,6 +8,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent {
   registerForm!:FormGroup;
+  welcome = "Welcome !"
 
   constructor(private fb:FormBuilder){
     this.registerForm = this.fb.group({
@@ -22,8 +23,13 @@ export class RegisterComponent {
 
   addUser(){
     const newUser = this.fb.group({
+      userName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      gender: [''],
+      phoneNumber: [''],
+      dateOfBirth: [''],
       password:[''],
+      confirmPassword:['']
     });
     this.usersFormArray.push(newUser)
   }

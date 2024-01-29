@@ -10,7 +10,7 @@ import { genderOptions } from 'src/app/common/constants/dropDownOptions';
 export class SignupFormComponent {
  @Input() signupForm!: FormGroup;
   genderOptions = genderOptions;
-
+  @Input() welcomeVar!:any;
   get usersFormArray(): FormArray{
     return this.signupForm.get('users') as FormArray
   }

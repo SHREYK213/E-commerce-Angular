@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupRoutingModule } from './signup-routing.module';
 import { CommonUtilsModule } from '../common-utils/common-utils.module';
 import { RegisterComponent } from './register/register.component';
+import {  MatButtonModule } from '@angular/material/button';
 
 
 
@@ -17,6 +18,7 @@ import { RegisterComponent } from './register/register.component';
     CommonModule,
     SignupRoutingModule,
     CommonUtilsModule,
+    MatButtonModule
 ]
 })
 export class SignupModule { }

@@ -53,3 +53,30 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-mdc-form-field-subscript-wrapper{
   display: none;
 }
+
+#form-field .mdc-text-field--outlined {
+  --mdc-outlined-text-field-outline-width: 1px;
+  --mdc-outlined-text-field-focus-outline-width: 2px;
+  --mdc-outlined-text-field-container-shape: 26px;
+  --mdc-outlined-text-field-outline-color:rgb(192, 192, 192);
+  --mdc-outlined-text-field-focus-outline-color:rgb(78, 78, 78);
+}
+
+#form-field .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input::placeholder{
+  color: rgb(192, 192, 192);
+}
+#form-field .mat-mdc-select-placeholder{
+  color: rgb(192, 192, 192);
+}
+
+#form-field .mat-mdc-select-arrow{
+  color: rgb(192, 192, 192);
+}
+
+#form-field .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-text-field__input{
+  color: rgb(192, 192, 192);
+}
+
+#form-field .mat-mdc-select-min-line{
+  color: rgb(192, 192, 192);
+}

@@ -1,45 +1,24 @@
-<!-- Import Angular Material styles if not already imported -->
-<!-- Add this to your styles.scss or styles.css file -->
-<!-- @import '@angular/material/prebuilt-themes/indigo-pink.css'; -->
-
-<form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="login-page">
+<mat-card class="signup-form">
+  <img class="logo-img" src="../../../assets/images/Yellow_E-commerce_Shop_Bag_Store_Logo.png" alt="Logo.png">
+  <h1 class="welcome-text">{{welcomeVar}}</h1>
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
   <div formArrayName="users">
-    <div *ngFor="let user of users.controls; let i = index" [formGroupName]="i" class="div">
-      <div class="overlap">
-        <img class="vector" src="./../../../assets/images/Vector.png" />
-        <div class="rectangle"></div>
-        <div class="text-wrapper">Welcome Back</div>
+    <div *ngFor="let user of users.controls; let i = index" [formGroupName]="i" class="forms-container">
+      <ng-container *ngFor="let key of getUserKeys()">
+        <!-- <mat-label>{{ key | titlecase }}</mat-label> -->
+        <mat-form-field appearance="outline" id="form-field" class="form-field">
+          <ng-container *ngIf="key !== 'gender'">
+          <input matInput [formControlName]="key" [placeholder]=" key | titlecase">
+          </ng-container>
+          <ng-container *ngIf="key === 'gender'">
+            <mat-select [formControlName]="key" [placeholder]=" key | titlecase">
+              <mat-option *ngFor="let option of genderOptions" [value]="option">{{option}}</mat-option>
+            </mat-select>
+          </ng-container>
+        </mat-form-field>
+      </ng-container>
 
-        <div class="field">
-          <div class="overlap-group">
-            <div class="text-wrapper-2">
-              <mat-form-field appearance="outline" class="form-field">
-                <input matInput [formControlName]="'yourmail'" placeholder="Your Email" />
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-
-        <div class="next">
-          <div class="overlap-2">
-            <div class="text-wrapper-3">Next</div>
-            <img class="eva-arrow-ios" src="" />
-          </div>
-        </div>
-
-        <div class="FORGOT-PASSWORD">forgot password</div>
-
-        <img class="standard-collection" src="./../../../assets/images/standard-collection-14.png" />
-      </div>
-
-      <div class="login-signup">
-        <div class="overlap-3">
-          <div class="rectangle-2"></div>
-          <div class="SIGNUP">signup</div>
-          <div class="rectangle-3"></div>
-          <div class="LOGIN">login</div>
-        </div>
-      </div>
     </div>
   </div>
 </form>
+</mat-card>
