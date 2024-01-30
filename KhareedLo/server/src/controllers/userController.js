@@ -64,12 +64,15 @@ const login = async (req, res) => {
     if (!email || !password) {
       return res.status(400).send("Email and password are required");
     }
-
     const user = await Users.findOne({
       where: {
         email: email,
       },
     });
+
+    if(!user.isVerified){
+      return res.status(401).send("User is not verified");
+    }
 
     if (!user) {
       return res.status(401).send("Invalid email or password");

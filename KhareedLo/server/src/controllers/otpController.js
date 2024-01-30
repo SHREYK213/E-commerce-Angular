@@ -10,7 +10,7 @@ const Users = db.users;
 
 const verifyOtp = async (req, res) => {
     try {
-        const { email, password, otp } = req.body;
+        const { email, otp } = req.body;
 
         const user = await Users.findOne({
             where: {
@@ -41,13 +41,16 @@ const verifyOtp = async (req, res) => {
     console.log("Current Timestamp:", new Date().toISOString());
     
     // Check if OTP matches and is not expired using the OTP middleware
-    const isOtpValid = otpMiddleware.verifyOTP(otp, user.otp, user.otpExpiration);
+    const isOtpValid = await otpMiddleware.verifyAuthOTP(otp, user.otp, user.otpExpiration);
     console.log("Is OTP Valid?", isOtpValid);
 
-    if (!user || !otpMiddleware.verifyOTP(otp, user.otp, user.otpExpiration)) {
+    if (!isOtpValid) {
         return res.status(401).send("Invalid email, password, or OTP");
       }
-
+      if (isOtpValid) {
+        await Users.update({isVerified : true},{where : {id : user.id}});
+        return res.status(200).send("OTP verified");
+      }
     // Clear the OTP in the database after successful verification
     await Users.update({ otp: null, otpExpiration: null }, { where: { id: user.id } });
 
@@ -55,7 +58,7 @@ const verifyOtp = async (req, res) => {
 
     // Set token in cookie (optional)
     res.cookie("jwt", token, { maxAge: 1 * 24 * 60 * 60 * 1000, httpOnly: true });
-
+    
     console.log("User OTP verified:", JSON.stringify(user, null, 2));
     console.log("New Token:", token);
 
