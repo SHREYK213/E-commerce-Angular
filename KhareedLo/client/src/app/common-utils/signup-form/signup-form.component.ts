@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 import { genderOptions } from 'src/app/common/constants/dropDownOptions';
 @Component({
   selector: 'app-signup-form',
@@ -15,7 +15,9 @@ export class SignupFormComponent {
     return this.signupForm.get('users') as FormArray
   }
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+    private router:Router
+    ) {
   }
 
   get users(): FormArray {
@@ -36,5 +38,14 @@ export class SignupFormComponent {
     // Assuming all users have the same keys, use the keys of the first user
     const firstUser = this.users.controls[0] as FormGroup;
     return Object.keys(firstUser.controls);
+  }
+
+  navigateToLogin(){
+    this.router.navigate(['login'])
+    console.log("login");
+    
+  }
+  navigateToRegister(){
+    this.router.navigate(['register'])
   }
 }

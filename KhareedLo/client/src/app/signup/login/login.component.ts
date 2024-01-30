@@ -23,7 +23,7 @@ export class LoginComponent {
   addUser(){
     const newUser = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password:[''],
+      password:['',Validators.required],
     });
     this.usersFormArray.push(newUser)
   }

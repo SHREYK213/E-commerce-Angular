@@ -6,6 +6,7 @@ import { SignupRoutingModule } from './signup-routing.module';
 import { CommonUtilsModule } from '../common-utils/common-utils.module';
 import { RegisterComponent } from './register/register.component';
 import {  MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -18,7 +19,8 @@ import {  MatButtonModule } from '@angular/material/button';
     CommonModule,
     SignupRoutingModule,
     CommonUtilsModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule
 ]
 })
 export class SignupModule { }

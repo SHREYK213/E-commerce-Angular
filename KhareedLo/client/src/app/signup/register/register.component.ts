@@ -25,11 +25,11 @@ export class RegisterComponent {
     const newUser = this.fb.group({
       userName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      gender: [''],
-      phoneNumber: [''],
-      dateOfBirth: [''],
-      password:[''],
-      confirmPassword:['']
+      gender: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
+      // password:['', Validators.required],
+      // confirmPassword:['', Validators.required]
     });
     this.usersFormArray.push(newUser)
   }

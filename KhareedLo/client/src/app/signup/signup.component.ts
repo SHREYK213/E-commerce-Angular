@@ -6,5 +6,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent {
-
+  isRegisterMode: boolean = false;
+toggleMode() {
+  this.isRegisterMode = !this.isRegisterMode;
+  console.log(this.isRegisterMode);
+   
+}
 }
