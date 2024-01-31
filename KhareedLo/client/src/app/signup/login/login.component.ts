@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormsService } from 'src/app/common/services/forms.service';
 
 @Component({
   selector: 'app-login',
@@ -9,22 +10,42 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent {
   loginForm!:FormGroup;
   welcome = "Welcome back"
-  constructor(private fb:FormBuilder){
+  formsData!: any[];
+  formButton = "Submit"
+
+  constructor(private fb:FormBuilder,
+    private formsService:FormsService){
+     this.loginForm = this.fb.group({
+       users:this.fb.array([])
+     });
+   }
+
+  ngOnInit(): void {
+    // Fetch form data from the service
+    this.formsService.getForms().subscribe((data: any) => {
+      this.formsData = data;
+      this.createLoginForm();
+    });
+  }
+  
+
+  createLoginForm(): void {
+    const formGroupConfig: { [key: string]: any } = {};
+  
+    for (const formField of this.formsData) {
+      // Include only the email and password fields
+      if (formField.name === 'Email' || formField.name === 'Password') {
+        const formControlConfig = formField.inputAllowed ? ['', Validators.required] : '';
+  
+        formGroupConfig[formField.name] = formControlConfig;
+      }
+    }
+  
     this.loginForm = this.fb.group({
-      users:this.fb.array([])
+      users: this.fb.array([this.fb.group(formGroupConfig)])
     });
-    this.addUser();
   }
 
-  get usersFormArray(){
-    return this.loginForm.get('users') as FormArray;
-  }
-
-  addUser(){
-    const newUser = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password:['',Validators.required],
-    });
-    this.usersFormArray.push(newUser)
-  }
+  
+  
 }

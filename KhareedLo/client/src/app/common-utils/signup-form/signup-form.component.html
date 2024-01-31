@@ -13,10 +13,10 @@
       <ng-container *ngFor="let key of getUserKeys()">
         <!-- <mat-label>{{ key | titlecase }}</mat-label> -->
         <mat-form-field appearance="outline" id="form-field" class="form-field">
-          <ng-container *ngIf="key !== 'gender'">
+          <ng-container *ngIf="key !== 'Gender'">
           <input matInput [formControlName]="key" [placeholder]=" key | titlecase">
           </ng-container>
-          <ng-container *ngIf="key === 'gender'">
+          <ng-container *ngIf="key === 'Gender'">
             <mat-select [formControlName]="key" [placeholder]=" key | titlecase">
               <mat-option *ngFor="let option of genderOptions" [value]="option">{{option}}</mat-option>
             </mat-select>
@@ -24,7 +24,7 @@
         </mat-form-field>
       </ng-container>
       <div class="submit-container">
-        <button mat-raised-button class="submit-button">Submit</button> 
+        <button mat-raised-button class="submit-button">{{formButton}}</button>
       </div>
 
     </div>

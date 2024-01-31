@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { genderOptions } from 'src/app/common/constants/dropDownOptions';
@@ -11,6 +11,11 @@ export class SignupFormComponent {
  @Input() signupForm!: FormGroup;
   genderOptions = genderOptions;
   @Input() welcomeVar!:any;
+  @Output() isNextButtonClicked = new EventEmitter();
+  @Output() formData = new EventEmitter<any>();
+
+  @Input() formButton!:string;
+
   get usersFormArray(): FormArray{
     return this.signupForm.get('users') as FormArray
   }
@@ -29,6 +34,8 @@ export class SignupFormComponent {
   }
 
   onSubmit() {
+    this.isNextButtonClicked.emit();    
+    this.formData.emit(this.signupForm.value);
     console.log(this.signupForm.value);
     // Additional logic for form submission
   }
@@ -40,12 +47,12 @@ export class SignupFormComponent {
     return Object.keys(firstUser.controls);
   }
 
-  navigateToLogin(){
-    this.router.navigate(['login'])
-    console.log("login");
+  // navigateToLogin(){
+  //   this.router.navigate(['login'])
+  //   console.log("login");
     
-  }
-  navigateToRegister(){
-    this.router.navigate(['register'])
-  }
+  // }
+  // navigateToRegister(){
+  //   this.router.navigate(['register'])
+  // }
 }
