@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class RegisterService {
   constructor(private http: HttpClient) { }
+  storedEmail!: string;
 
   baseUrl = "http://localhost:3000/api/users";
 
@@ -14,4 +15,13 @@ export class RegisterService {
     console.log("aim colled");
     
     return this.http.post(`${this.baseUrl}/register`,registerBody);
-  }}
+  }
+
+  setStoredEmail(email: string): void {
+    this.storedEmail = email;
+  }
+
+  getStoredEmail(): string {
+    return this.storedEmail;
+  }
+}

@@ -7,6 +7,9 @@ import { CommonUtilsModule } from '../common-utils/common-utils.module';
 import { RegisterComponent } from './register/register.component';
 import {  MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { OtpComponent } from './otp/otp.component';
+import { NgOtpInputModule } from 'ng-otp-input';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -14,13 +17,16 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     SignupComponent,
     LoginComponent,
-    RegisterComponent    ],
+    RegisterComponent,
+    OtpComponent    ],
   imports: [
     CommonModule,
     SignupRoutingModule,
     CommonUtilsModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    NgOtpInputModule,
+    MatCardModule
 ]
 })
 export class SignupModule { }

@@ -18,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     SignupModule,
     DashboardRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule  
+    HttpClientModule  ,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

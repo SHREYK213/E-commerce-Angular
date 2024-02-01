@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FormsService } from 'src/app/common/services/forms.service';
+import { LoginService } from 'src/app/common/services/user/login.service';
 
 @Component({
   selector: 'app-login',
@@ -12,15 +14,20 @@ export class LoginComponent {
   welcome = "Welcome back"
   formsData!: any[];
   formButton = "Submit"
+  nextButton!:boolean;
+  accumulatedFormData: any = {};
 
   constructor(private fb:FormBuilder,
-    private formsService:FormsService){
+    private formsService:FormsService,
+    private loginService:LoginService,
+    private router:Router){
      this.loginForm = this.fb.group({
        users:this.fb.array([])
      });
    }
 
   ngOnInit(): void {
+    this.nextButton=false;
     // Fetch form data from the service
     this.formsService.getForms().subscribe((data: any) => {
       this.formsData = data;
@@ -46,6 +53,35 @@ export class LoginComponent {
     });
   }
 
-  
+
+   formSubmitted(data:any){
+    const transformedData = this.transformFormData(data);
+    this.submitClicked();
+    console.log('register', transformedData);
+    console.log('accumulated', this.accumulatedFormData);
+  }
+
+  submitClicked(){
+    this.loginService.postUser(this.accumulatedFormData)
+    .subscribe(
+      (res) => {
+        // Handle successful registration response here
+        console.log('Login successful:', res);
+        this.router.navigateByUrl('');
+        return res;
+      },
+      (error) => {
+        // Handle registration error here
+        console.error('Login failed:', error);
+      }
+    ); 
+   }
+
+   transformFormData(formData: any): void {
+    this.accumulatedFormData = {
+      ...this.accumulatedFormData,
+      email: formData.users[0]['Email'] || formData.users[0]['email'] || this.accumulatedFormData.email || '',
+      password: formData.users[0]['Password'] || formData.users[0]['password'] || this.accumulatedFormData.password || ''};
+  }
   
 }

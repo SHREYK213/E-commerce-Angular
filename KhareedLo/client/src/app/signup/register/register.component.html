@@ -6,6 +6,8 @@
         (isNextButtonClicked)="isNextButtonClickedEvent()" 
         [formButton]="formButton" 
         (formData)="formSubmitted($event)"
+        (isSubmitButtonClicked)="submitButtonClicked()"
+        [nextButton]="nextButton"
         class="register-form">
         </app-signup-form>
     </div>

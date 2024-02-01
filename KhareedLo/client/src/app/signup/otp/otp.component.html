@@ -1,0 +1,20 @@
+<div class="main">
+<mat-card class="signup-form">
+    <div class="main-container">
+        <div class="welcome-text-container">
+            <h1 class="welcome-text">Enter OTP</h1>
+          </div>
+        <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="otpconfig" class="register-form"></ng-otp-input>
+        <div class="submit-container">
+            <button #submit mat-raised-button class="submit-button" [disabled]="!submitBtn" (click)="submitOtp()">Submit</button>
+          </div>
+    </div>
+</mat-card>
+  
+<div class="login-page-text">
+    <h3>KhareedLo</h3>
+    <br>
+    <h1>OTP Page</h1>
+</div>
+
+</div>

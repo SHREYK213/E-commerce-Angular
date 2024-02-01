@@ -13,8 +13,9 @@ export class SignupFormComponent {
   @Input() welcomeVar!:any;
   @Output() isNextButtonClicked = new EventEmitter();
   @Output() formData = new EventEmitter<any>();
-
   @Input() formButton!:string;
+  @Input() nextButton!:boolean;
+  @Output() isSubmitButtonClicked = new EventEmitter();
 
   get usersFormArray(): FormArray{
     return this.signupForm.get('users') as FormArray
@@ -34,25 +35,19 @@ export class SignupFormComponent {
   }
 
   onSubmit() {
-    this.isNextButtonClicked.emit();    
-    this.formData.emit(this.signupForm.value);
-    console.log(this.signupForm.value);
-    // Additional logic for form submission
+    if (this.signupForm.valid) {
+      this.isSubmitButtonClicked.emit();
+      this.formData.emit(this.signupForm.value);
+      console.log(this.signupForm.value);
+    }
   }
 
-  // Method to get the keys of the user object
   getUserKeys(): string[] {
-    // Assuming all users have the same keys, use the keys of the first user
     const firstUser = this.users.controls[0] as FormGroup;
     return Object.keys(firstUser.controls);
   }
 
-  // navigateToLogin(){
-  //   this.router.navigate(['login'])
-  //   console.log("login");
-    
-  // }
-  // navigateToRegister(){
-  //   this.router.navigate(['register'])
-  // }
+  nextBtnClicked(){
+    this.isNextButtonClicked.emit();  
+  }
 }

@@ -36,14 +36,12 @@ const register = async (req, res) => {
     if (user) {
       sendMail(user.email, `Welcome to KhareedLo ${user.name}`, `Your OTP is: ${ogOtp}`);
 
-      // const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY);
-
-      // res.cookie("jwt", token, { maxAge: 1  24  60  60  1000, httpOnly: true });
+    
 
       console.log("User", JSON.stringify(user, null, 2));
       // console.log("Token", token);
 
-      return res.status(201).send("Registration Successful, Please check your email for verification.");
+      return res.status(201).json({message:"Registration Successful, Please check your email for verification.",user});
     } else {
       return res.status(409).send("Details are not correct");
     }
