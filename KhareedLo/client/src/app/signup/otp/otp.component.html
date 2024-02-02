@@ -1,10 +1,14 @@
 <div class="main">
-<mat-card class="signup-form">
+<mat-card class="otp-container">
     <div class="main-container">
-        <div class="welcome-text-container">
-            <h1 class="welcome-text">Enter OTP</h1>
+        <div class="heading-text-container">
+            <h1 class="heading-text">Enter OTP</h1>
           </div>
-        <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="otpconfig" class="register-form"></ng-otp-input>
+        <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="otpconfig" class="otp-form"></ng-otp-input>
+        <div class="resend-container">
+            <p class="resend-button-disabled" *ngIf="!showResendOtp">Resend Otp ({{ formatTime(resendCounter) }})</p>
+            <p class="resend-button" *ngIf="showResendOtp" (click)="resendOtp()">Resend Otp</p>
+        </div>
         <div class="submit-container">
             <button #submit mat-raised-button class="submit-button" [disabled]="!submitBtn" (click)="submitOtp()">Submit</button>
           </div>

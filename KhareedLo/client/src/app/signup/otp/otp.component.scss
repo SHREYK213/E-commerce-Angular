@@ -1,4 +1,4 @@
-.signup-form{
+.otp-container{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -11,19 +11,36 @@
     width: 550px;
     height: 508px;
     border-radius: 11px;
+
+
+    .resend-container{
+        margin: 5px 60px 0px 0px;
+        display: flex;
+        justify-content: end;
+        .resend-button{
+            cursor: pointer;
+            margin: 0;
+            color: #4269E2;
+            font-weight: 700;
+        }
+        .resend-button-disabled{
+            color: rgb(94, 94, 94);
+            font-weight: 700;
+        }
+    }
   }
 }
 
-.register-form{
+.otp-form{
     align-items: center;
     display: flex;
     flex-direction: column;
     margin-top: 18%;
 }
 
-.welcome-text-container{
+.heading-text-container{
 
-    .welcome-text{
+    .heading-text{
         color: rgb(192, 192, 192);
         font-size: 30px;
         text-align: center;

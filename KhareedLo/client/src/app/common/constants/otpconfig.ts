@@ -6,6 +6,9 @@ export const otpconfig = {
     placeholder: '',
     inputStyles: {
       'width': '60px',
-      'height': '60px'
+      'height': '60px',
+      'background': 'transparent',
+      'border': '1px solid white',
+      'color' : 'white'
     }
   };

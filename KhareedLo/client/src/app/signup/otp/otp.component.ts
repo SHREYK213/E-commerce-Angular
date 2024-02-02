@@ -16,6 +16,8 @@ export class OtpComponent {
   submitBtn = false;
   otpconfig = otpconfig;
   storedEmail!:any;
+  resendCounter: number = 5;
+  showResendOtp=false;
   constructor(
       private otpService:OtpService,
       private router:Router,
@@ -25,6 +27,7 @@ export class OtpComponent {
 
   ngOnInit():void{
     this.accessStoredEmail();
+    this.startResendCounter();
   }
 
   onOtpChange(otp: string) {
@@ -68,7 +71,49 @@ export class OtpComponent {
 accessStoredEmail(){
   this.storedEmail = this.registerService.getStoredEmail();
   console.log("otp",this.storedEmail);
-  
 }
+
+resendOtp(){
+  if (this.storedEmail) {
+    // Valid OTP, proceed with verification
+    const jsonBody = {
+      email: this.storedEmail // Assuming storedEmail is the user's email
+    };
+
+    this.otpService.resendOtp(jsonBody)
+      .subscribe(
+        (res) => {
+          // Handle successful OTP verification response here
+          console.log('OTP resent successful:', res);
+        this.router.navigateByUrl('signup/login');
+          // Perform further actions if needed
+        },
+        (error) => {
+          // Handle OTP verification error here
+          console.error('OTP verification failed:', error);
+        }
+      );
+  }}
+
+startResendCounter() {
+  const interval = setInterval(() => {
+    if (this.resendCounter > 0) {
+      this.resendCounter--;
+    } else {
+      // Stop the interval when the countdown reaches 0
+      clearInterval(interval);
+      this.showResendOtp = true;
+    }
+  }, 1000); // Update every 1 second
+}
+
+formatTime(seconds: number): string {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+
+  // Format the time as "mm:ss"
+  return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+}
+
 
 }
