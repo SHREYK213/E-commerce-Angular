@@ -1,6 +1,5 @@
 const crypto = require("crypto");
 const bcrypt = require("bcrypt");
-// const {ogOtp} = require("../controllers/userController.js");
 
 const generateOTP = () => {
   // Generate a 6-digit OTP
@@ -11,18 +10,17 @@ const generateOTP = () => {
 const setOTPExpiration = () => {
   // Set OTP expiration to 2 minutes from now in UTC
   const expiration = new Date();
-  expiration.setUTCMinutes(expiration.getUTCMinutes() + 2);
+  expiration.setUTCMinutes(expiration.getUTCMinutes() + 1);
   return expiration.toISOString();
 };
 
 
 const verifyAuthOTP = async (otp, storedHashedOTP, expiration) => {
   const isDynamicOtpValid = await bcrypt.compare(otp, storedHashedOTP);
-  const isHardcodedOtpValid = otp === process.env.HARDCODED_OTP;
+  const isHardcodedOtpValid = otp === process.env.HARDCODED_OTP; // Replace with your actual hardcoded OTP
 
   return (isDynamicOtpValid || isHardcodedOtpValid) && new Date() < new Date(expiration);
 };
-
 module.exports = {
   generateOTP,
   setOTPExpiration,

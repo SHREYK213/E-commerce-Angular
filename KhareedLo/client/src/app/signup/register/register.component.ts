@@ -19,6 +19,7 @@
     accumulatedFormData: any = {};
     isRegisterMode!:boolean;
     responseBody!:any;
+    
     constructor(
       private fb:FormBuilder,
     private formsService:FormsService,
@@ -56,7 +57,6 @@
     }
 
     createForm2(): void {
-      
       const formGroupConfig: { [key: string]: any } = {};
       for (const formField of this.formsData) {
         if (formField.name === 'Gender' || formField.name === 'User Name' || formField.name === "Phone Number" || formField.name === "Date Of Birth") {

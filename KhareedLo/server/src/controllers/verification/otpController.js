@@ -45,7 +45,7 @@ const verifyOtp = async (req, res) => {
       const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY);
 
       // Set token in cookie (optional)
-      res.cookie("jwt", token, { maxAge: 1 * 24*  60*  60 * 1000, httpOnly: true });
+      res.cookie("jwt", token, { maxAge: 1 * 24 * 60 * 60 * 1000, httpOnly: true });
 
       console.log("User OTP verified:", JSON.stringify(user, null, 2));
       console.log("New Token:", token);
@@ -56,7 +56,6 @@ const verifyOtp = async (req, res) => {
       return res.status(500).send("Internal Server Error");
   }
 };
-
 
 const resendOtp = async (req, res) => {
   try {

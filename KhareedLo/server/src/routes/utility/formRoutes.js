@@ -4,7 +4,8 @@ const { createForm,getForms } = require('../../controllers/form/formController')
 
 const router = express.Router();
 
-router.get('/allForms', getForms)
+
+  router.get('/allForms', getForms)
 
   router.post('/createForm', createForm)
 

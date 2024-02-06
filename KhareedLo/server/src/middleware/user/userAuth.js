@@ -56,7 +56,6 @@ const saveUser = async (req, res, next) => {
   
 //         // Check if the user exists in the database
 //         const existingUser = await Users.findByPk(user.id);
-//         console.log("existingUser",existingUser);
   
 //         if (!existingUser) {
 //           return res.status(403).send("Forbidden: User not found");
@@ -74,8 +73,8 @@ const saveUser = async (req, res, next) => {
 //     }
 // };
 
+
 module.exports = {
-    saveUser
-    // authenticateToken,
-    // authenticateUser
+    saveUser,
+    // authenticateToken
 };

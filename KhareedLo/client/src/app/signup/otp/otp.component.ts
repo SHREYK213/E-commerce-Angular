@@ -16,7 +16,7 @@ export class OtpComponent {
   submitBtn = false;
   otpconfig = otpconfig;
   storedEmail!:any;
-  resendCounter: number = 5;
+  resendCounter: number = 60;
   showResendOtp=false;
   constructor(
       private otpService:OtpService,
@@ -46,22 +46,18 @@ export class OtpComponent {
 
     submitOtp() {
       if (this.otp && this.otp.length === this.otpconfig.length) {
-        // Valid OTP, proceed with verification
         const jsonBody = {
-          email: this.storedEmail, // Assuming storedEmail is the user's email
+          email: this.storedEmail,
           otp: this.otp
         };
     
         this.otpService.verifyOtp(jsonBody)
           .subscribe(
             (res) => {
-              // Handle successful OTP verification response here
               console.log('OTP verification successful:', res);
             this.router.navigateByUrl('signup/login');
-              // Perform further actions if needed
             },
             (error) => {
-              // Handle OTP verification error here
               console.error('OTP verification failed:', error);
             }
           );
@@ -74,26 +70,26 @@ accessStoredEmail(){
 }
 
 resendOtp(){
+  this. resetOtpInput();
   if (this.storedEmail) {
-    // Valid OTP, proceed with verification
     const jsonBody = {
-      email: this.storedEmail // Assuming storedEmail is the user's email
+      email: this.storedEmail
     };
 
     this.otpService.resendOtp(jsonBody)
       .subscribe(
         (res) => {
-          // Handle successful OTP verification response here
           console.log('OTP resent successful:', res);
-        this.router.navigateByUrl('signup/login');
-          // Perform further actions if needed
         },
         (error) => {
-          // Handle OTP verification error here
           console.error('OTP verification failed:', error);
         }
       );
   }}
+
+  resetOtpInput() {
+    this.ngOtpInput.setValue(''); 
+  }
 
 startResendCounter() {
   const interval = setInterval(() => {
@@ -114,6 +110,4 @@ formatTime(seconds: number): string {
   // Format the time as "mm:ss"
   return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
 }
-
-
 }
