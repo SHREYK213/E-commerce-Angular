@@ -8,6 +8,16 @@ const { signToken } = require("../../middleware/authorization/auth");
 
 const Users = db.users;
 
+const getUsers = async (req, res) => {
+  try {
+    const users = await Users.findAll();
+    return res.status(200).json(users);
+  } catch (error) {
+    console.error('Error fetching users:', error.message);
+    return res.status(500).send('Internal Server Error');
+  }
+};
+
 const register = async (req, res) => {
   try {
     const { name, email, phone_number, date_of_birth, password } = req.body;
@@ -36,12 +46,7 @@ const register = async (req, res) => {
     if (user) {
       sendMail(user.email, `Welcome to KhareedLo ${user.name}`, `Your OTP is: ${ogOtp}`);
 
-      // const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY);
-
-      // res.cookie("jwt", token, { maxAge: 1 * 24 * 60 * 60 * 1000, httpOnly: true });
-
       console.log("User", JSON.stringify(user, null, 2));
-      // console.log("Token", token);
 
       return res.status(201).json({ message: "Registration Successful, Please check your email for verification.",user });
     } else {
@@ -96,6 +101,7 @@ const login = async (req, res) => {
   }
 };
 module.exports = {
+  getUsers,
   register,
   login,
 };

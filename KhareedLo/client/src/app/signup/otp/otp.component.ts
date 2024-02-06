@@ -18,6 +18,7 @@ export class OtpComponent {
   storedEmail!:any;
   resendCounter: number = 60;
   showResendOtp=false;
+  disableResendOtp! : boolean;
   constructor(
       private otpService:OtpService,
       private router:Router,
@@ -80,9 +81,11 @@ resendOtp(){
       .subscribe(
         (res) => {
           console.log('OTP resent successful:', res);
+          this.disableResendOtp = true;
         },
         (error) => {
           console.error('OTP verification failed:', error);
+          this.disableResendOtp = true;
         }
       );
   }}

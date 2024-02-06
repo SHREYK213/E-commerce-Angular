@@ -4,21 +4,17 @@ const mongoose = require('mongoose');
 // Controller function to handle file upload
 const uploadLogo = async (req, res) => {
   try {
-    // Check if file exists in the request
     if (!req.file) {
       return res.status(400).send('Please upload an image file.');
     }
     console.log('EntityId from request:', req.body.entityId);
 
-    // Create a new Image document in the database
     const newLogo = new Logo({
-      entityId: req.body.entityId,  // Convert entityId to ObjectId
-      entityType: req.body.entityType, // Assuming entityType is sent in the request body
+      entityId: req.body.entityId,
+      entityType: req.body.entityType,
       logo: req.file.buffer,
-      // You can handle the 'logo' field similarly if needed
     });
 
-    // Save the new image document
     await newLogo.save();
 
     res.status(201).send('Image uploaded successfully.');
@@ -28,4 +24,22 @@ const uploadLogo = async (req, res) => {
   }
 };
 
-module.exports = uploadLogo;
+
+const viewLogo = async (req, res) => {
+  try {
+    const entityId = req.params.entityId;
+    const logo = await Logo.findOne({ entityId });
+
+    if (!logo) {
+      return res.status(404).send('Image not found.');
+    }
+
+    res.set('Content-Type', 'image/jpeg');
+    res.send(logo.logo);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+};
+
+module.exports = {uploadLogo, viewLogo};
