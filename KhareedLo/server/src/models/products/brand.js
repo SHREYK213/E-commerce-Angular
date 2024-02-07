@@ -1,18 +1,19 @@
-module.exports = (sequelize, DataTypes) => {
-  const Brand = sequelize.define('brands', {
-    brand_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    // brand_logo: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
-  }, { timestamps: true });
+const { Sequelize } = require("sequelize");
+const db = require("../index")
+const Brand = db.define('brands', {
+  brand_Id: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  brand_name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+}, { timestamps: true });
 
-  Brand.associate = (models) => {
-    Brand.hasMany(models.Products, { foreignKey: 'brandId' });
-  };
 
-  return Brand;
-};
+// db.sync({ alter: true })
+module.exports = Brand
+

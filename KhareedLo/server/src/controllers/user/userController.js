@@ -6,7 +6,7 @@ const {sendMail} = require("../../utils/email/email");
 const { signToken } = require("../../middleware/authorization/auth");
 
 
-const Users = db.users;
+const Users = require("../../models/users/userModel");
 
 const getUsers = async (req, res) => {
   try {
@@ -93,7 +93,7 @@ const login = async (req, res) => {
     await user.update({isLoggedIn:true})
 
     // Generate a new access token using the signToken function
-    const newToken = await signToken({ id: user.id });
+    const newToken = await signToken({ id: user.user_Id });
     console.log("New Token:", newToken);
 
     return res.status(200).send({ user, token: newToken.accessToken });

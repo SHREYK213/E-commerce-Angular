@@ -1,6 +1,6 @@
 const db = require("../../models");
 
-const Forms = db.forms;
+const Forms = require("../../models/utility/formModel");
 
 const createForm = async (req, res) => {
     try {
