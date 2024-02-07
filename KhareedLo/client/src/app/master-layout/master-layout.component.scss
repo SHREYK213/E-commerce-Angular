@@ -1,10 +1,12 @@
 /* master-layout.component.scss */
+@import "../../styles/constans/variables.scss";
+
 .app-container {
     width: 100%;
     display: flex;
     flex-direction: column;
     height: 100%;
-    background-color: black;
+    background-color: #0f0f0f;
   }
   .top-bar{
     width: 100%;

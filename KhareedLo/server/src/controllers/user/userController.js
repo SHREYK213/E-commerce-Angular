@@ -38,8 +38,8 @@ const register = async (req, res) => {
       date_of_birth,
       password_hash: hashedPassword,
       otp,
-      otpExpiration,
-    };
+      otpExpiration
+      };
 
     const user = await Users.create(data);
 
@@ -89,6 +89,8 @@ const login = async (req, res) => {
           "Account not verified. Please check your email for verification instructions."
         );
     }
+
+    await user.update({isLoggedIn:true})
 
     // Generate a new access token using the signToken function
     const newToken = await signToken({ id: user.id });

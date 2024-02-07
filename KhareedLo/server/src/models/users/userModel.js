@@ -53,8 +53,13 @@ module.exports = (sequelize, DataTypes) => {
       isVerified: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
+      },
+      isLoggedIn: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
       }
-    }, { timestamps: true });
+      },
+       { timestamps: true });
 
     Users.beforeCreate(async (user) => {
       if (user.otp) {

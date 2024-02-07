@@ -4,30 +4,32 @@ const Forms = db.forms;
 
 const createForm = async (req, res) => {
     try {
-        const { name, hasDropdown, inputAllowed } = req.body;
+        const formsData = req.body;
 
-    if(!name){
-        return res.status(400).send("Invalid form");
-    }
+        if (!Array.isArray(formsData)) {
+            return res.status(400).send("Invalid data format. Expected an array.");
+        }
 
-    const data = {
-        name,
-        hasDropdown,
-        inputAllowed
-    }
+        const createdForms = [];
 
-    const form = await Forms.create(data)
+        for (const formData of formsData) {
+            const { name, hasDropdown, inputAllowed } = formData;
 
-    if(form) {
-        return res.status(201).send(form);
-    }else{
-        return res.status(409).send("Details are not correct");
-    }
+            if (!name) {
+                return res.status(400).send("Invalid form data: name is required.");
+            }
+
+            const form = await Forms.create({ name, hasDropdown, inputAllowed });
+            createdForms.push(form);
+        }
+
+        return res.status(201).send(createdForms);
     } catch (error) {
-        console.error("Error during registration:", error.message);
+        console.error("Error during form creation:", error.message);
         return res.status(500).send("Internal Server Error");
     }
-}
+};
+
 
 const getForms = async (req, res) => {
         try {
