@@ -10,19 +10,20 @@ export class TopBarComponent {
   isMenuOpened: boolean = false;
   @Output() toggleSidebarEvent = new EventEmitter<void>();
   @Input() isSidebarOpen!: boolean;
-  userData!:any;
-    constructor( private registerSvc:RegisterService){}
+  usersData!: any[];
+  constructor( private registerService:RegisterService){}
 
   ngOnInit():void{
-    this.getUsers();    
+    this.getUsers();
   }
-  
+
   getUsers():void{
-    this.registerSvc.getUsers().subscribe((data:any)=>{
-      this.userData = data;
+    this.registerService.getUsers().subscribe((data:any)=>{
+      this.usersData = data;
+      console.log(this.usersData);
     })
-    console.log(this.userData);
   }
+
   categories = [
     { name: 'Electronics', expanded: false },
     { name: 'Clothing', expanded: false },

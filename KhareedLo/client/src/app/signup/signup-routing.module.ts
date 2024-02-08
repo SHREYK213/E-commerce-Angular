@@ -11,7 +11,7 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'otp', component: OtpComponent },
       { path: 'register', component: RegisterComponent },
-      { path: '**', redirectTo: 'login', pathMatch: 'full' }, // Redirect /signup to /signup/register
+      { path: '**', redirectTo: 'login', pathMatch: 'full' },
     ]
   },
 ];

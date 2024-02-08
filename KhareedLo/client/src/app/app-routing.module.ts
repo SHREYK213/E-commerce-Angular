@@ -4,10 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
 
   {
-    path:'',redirectTo:'dashboard',pathMatch:'full'
+    path:'',redirectTo:'',pathMatch:'full'
   },
   {
-    path: "dashboard",
+    path: "",
     loadChildren: () =>
       import("./master-layout/master-layout.module").then((m) => m.MasterLayoutModule),
   },
@@ -16,7 +16,7 @@ const routes: Routes = [
     loadChildren: () =>
     import("./signup/signup-routing.module").then((m) => m.SignupRoutingModule),
   },
-  { path: '**', redirectTo: 'dashboard' }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
