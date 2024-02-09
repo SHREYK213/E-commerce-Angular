@@ -1,3 +1,4 @@
+const Image = require('../images/images');
 const { Sequelize } = require("sequelize");
 const db = require("../index")
 const Brand = db.define('brands', {
