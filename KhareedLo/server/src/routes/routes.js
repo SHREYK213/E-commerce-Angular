@@ -1,15 +1,15 @@
 const express = require("express");
 const userRoutes = require('../routes/user/userRoutes.js');
 const formRoutes = require('../routes/utility/formRoutes.js');
-const productsRoutes = require('../routes/product/products.js');
-const uploadRoutes = require('../routes/utility/uploadRoutes.js');
+const productRoutes= require("../routes/product/productRoutes.js");
+const imageRoutes= require("../routes/utility/imageRoutes.js");
 const router = express.Router();
 
 
 
 router.use('/api/users', userRoutes);
 router.use('/api/forms', formRoutes);
-router.use('/api/products', productsRoutes);
-router.use('/api/upload', uploadRoutes);
+router.use('/api/products', productRoutes);
+router.use('/api/images', imageRoutes);
 
 module.exports = router;

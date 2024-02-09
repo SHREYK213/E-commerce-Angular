@@ -2,7 +2,7 @@
 const bcrypt = require("bcrypt");
 const db = require("../../models");
 const jwt = require("jsonwebtoken");
-const otpMiddleware = require("../../middleware/verification/otp");
+const otpMiddleware = require("../../middleware/verification/otpMiddleware");
 const { Op } = require("sequelize");
 const { sendMail } = require("../../utils/email/email");
 
@@ -45,7 +45,7 @@ const verifyOtp = async (req, res) => {
       const token = jwt.sign({ id: user.user_Id }, process.env.SECRET_KEY);
 
       // Set token in cookie (optional)
-      res.cookie("jwt", token, { maxAge: 1 * 24 * 60*  60 * 1000, httpOnly: true });
+      res.cookie("jwt", token, { maxAge: 1 * 24 * 60 * 60 * 1000, httpOnly: true });
 
       console.log("User OTP verified:", JSON.stringify(user, null, 2));
       console.log("New Token:", token);

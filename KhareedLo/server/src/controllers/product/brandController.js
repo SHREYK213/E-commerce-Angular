@@ -2,11 +2,11 @@ const bcrypt = require("bcrypt");
 const db = require("../../models");
 const jwt = require("jsonwebtoken");
 
-const Brand = require("../../models/products/brand");
+const Brand = require("../../models/products/brandModel.js");
 
 const addBrands = async (req, res) => {
   try {
-      const brandsData = req.body; // Array of brand names
+      const brandsData = req.body;
       
       if (!Array.isArray(brandsData) || brandsData.length === 0) {
           return res.status(400).send("Brand data required as an array");

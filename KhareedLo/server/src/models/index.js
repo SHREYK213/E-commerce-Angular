@@ -12,12 +12,15 @@ require('dotenv').config();
 // const connectionString = `postgres://${user}:${encodedPassword}@${host}:${port}/${database}`;
 // const sequelize = new Sequelize(connectionString, {dialect: "postgres"})
 
-
-// sequelize.authenticate().then(() => {
-//     console.log(`Database connected to khareedlo`)
-// }).catch((err) => {
-//     console.log(err)
-// })
+// try{
+//     sequelize.authenticate().then(() => {
+//         console.log(`Database connected to KhareedLo`)
+//     }).catch((err) => {
+//         console.log(err)
+//     })
+// }catch(error){
+//     console.error('Unable to connect to the database:', error);
+// }
 
 
 // const db = {};
@@ -27,11 +30,10 @@ require('dotenv').config();
 
 // db.users = require('./users/userModel.js')(sequelize, DataTypes);
 // db.forms = require('./utility/formModel.js')(sequelize, DataTypes);
-// db.products = require('./products/products.js')(sequelize, DataTypes);
 // db.brands = require('./products/brand.js')(sequelize, DataTypes);
+// db.products = require('./products/products.js')(sequelize, DataTypes);
 // db.category = require('./products/category.js')(sequelize, DataTypes);
 
-// module.exports = db
 
 const Sequelize = require("sequelize");
 const db = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
