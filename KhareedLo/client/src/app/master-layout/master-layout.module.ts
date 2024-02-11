@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MasterLayoutComponent } from './master-layout.component';
-import { ComponentsComponent } from './components/components.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -16,14 +15,18 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatListModule } from '@angular/material/list';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CategoryComponent } from './components/category/category.component';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 @NgModule({
   declarations: [
     MasterLayoutComponent,
-    ComponentsComponent,
     TopBarComponent,
-    SidebarComponent
+    SidebarComponent,
+    DashboardComponent,
+    CategoryComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +41,8 @@ import { MatListModule } from '@angular/material/list';
     MatRippleModule,
     MatSidenavModule,
     MatCheckboxModule,
-    MatListModule
+    MatListModule,
+    MatChipsModule
   ]
 })
 export class MasterLayoutModule { }
